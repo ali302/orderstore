@@ -3,17 +3,19 @@ using System.Collections.Generic;
 
 namespace OrderStore.Domain.Models
 {
-    public partial class Product
+    public partial class Orders
     {
-        public Product()
+        public Orders()
         {
             OrderProductComposite = new HashSet<OrderProductComposite>();
         }
 
-        public int ProductId { get; set; }
-        public string ProductName { get; set; }
-        public double ProductPrice { get; set; }
+        public int OrderId { get; set; }
+        public string OrderName { get; set; }
+        public DateTime OrderDate { get; set; }
+        public int CustomeId { get; set; }
 
+        public virtual Customer Custome { get; set; }
         public virtual ICollection<OrderProductComposite> OrderProductComposite { get; set; }
     }
 }

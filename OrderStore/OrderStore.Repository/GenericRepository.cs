@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OrderStore.Domain.Interfaces;
+using OrderStore.Domain.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

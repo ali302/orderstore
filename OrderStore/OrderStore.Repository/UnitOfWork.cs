@@ -1,4 +1,5 @@
 ﻿using OrderStore.Domain.Interfaces;
+using OrderStore.Domain.Models;
 using System;
 
 namespace OrderStore.Repository
@@ -8,15 +9,24 @@ namespace OrderStore.Repository
         private readonly ApplicationDbContext _context;
         public IOrderRepository Orders { get; }
         public IProductRepository Products { get; }
-
-        public UnitOfWork(ApplicationDbContext bookStoreDbContext,
-            IOrderRepository booksRepository,
-            IProductRepository catalogueRepository)
+        public UnitOfWork(ApplicationDbContext applicationDBContext,
+            IOrderRepository orderRepository,
+            IProductRepository productRepository)
         {
-            this._context = bookStoreDbContext;
+            this._context = applicationDBContext;
 
-            this.Orders = booksRepository;
-            this.Products = catalogueRepository;
+            this.Orders = orderRepository;
+            this.Products = productRepository;
+        }
+        public bool AddOrder(string OrderName, int productID, int customerID)
+        {
+            //Check if Product Exists
+            //Check if Customer Exists
+
+                this.Orders.Add(new Domain.Models.Orders { OrderName = OrderName, OrderDate = DateTime.Now, CustomeId = customerID });
+                this.Complete();
+                return true;
+
         }
         public int Complete()
         {

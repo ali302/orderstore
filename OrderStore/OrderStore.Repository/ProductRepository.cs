@@ -3,7 +3,7 @@ using OrderStore.Domain.Models;
 
 namespace OrderStore.Repository
 {
-    class ProductRepository : GenericRepository<Product>, IProductRepository
+  public  class ProductRepository : GenericRepository<Product>, IProductRepository
     {
         public ProductRepository(ApplicationDbContext context) : base(context)
         {

@@ -4,8 +4,10 @@ using System.Threading.Tasks;
 
 namespace OrderStore.Domain.Interfaces
 {
-    public interface IOrderRepository : IGenericRepository<Order>
+    public interface IOrderRepository : IGenericRepository<Orders>
     {
-       Task<IEnumerable<Order>> GetOrdersByOrderName(string orderName);
+        Task<IEnumerable<Orders>> GetOrdersByOrderName(string orderName);
+        bool UpdateOrderNameById(int id, string name);
+         bool DeleteOrderById(int id);
     }
 }
